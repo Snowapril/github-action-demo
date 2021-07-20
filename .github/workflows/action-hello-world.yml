@@ -1,0 +1,19 @@
+name: Hello Github Korea
+
+on:
+  workflow_dispatch:
+    inputs:
+      sayHello:
+        description: "Send Hello to github korea? y/n"
+        required: true
+        default: "y"
+
+jobs:
+  Say-Hello:
+    runs-on: ubuntu-latest
+    name: github hello
+    if: ${{ github.event.inputs.sayHello == "y" }}
+    
+    steps:
+      - name: Say hello to github korea
+        run: echo "Hello github korea"
